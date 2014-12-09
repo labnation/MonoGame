@@ -190,15 +190,14 @@ namespace Microsoft.Xna.Framework
     			manager.OnDeviceResetting(EventArgs.Empty);
     			
     			Microsoft.Xna.Framework.Graphics.Viewport _vp =
-    			new Microsoft.Xna.Framework.Graphics.Viewport();
+    			new Microsoft.Xna.Framework.Graphics.Viewport(
+    				(int)Bounds.X,
+					(int)Bounds.Y,
+					(int)Bounds.Width,
+					(int)Bounds.Height);
     			
     			_game.GraphicsDevice.PresentationParameters.BackBufferWidth = (int)Bounds.Width;
     			_game.GraphicsDevice.PresentationParameters.BackBufferHeight = (int)Bounds.Height;
-
-    			_vp.X = (int)Bounds.X;
-    			_vp.Y = (int)Bounds.Y;
-    			_vp.Width = (int)Bounds.Width;
-    			_vp.Height = (int)Bounds.Height;
 
     			_game.GraphicsDevice.Viewport = _vp;
             }
