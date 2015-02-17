@@ -38,9 +38,13 @@ namespace Microsoft.Xna.Framework.Windows
 
         public bool AllowAltF4 = true;
 
+        public int ppi;
+
         public WinFormsGameForm(GameWindow window)
         {
             _window = window;
+            System.Drawing.Graphics g = this.CreateGraphics();
+            this.ppi = (int)Math.Round((g.DpiX + g.DpiY) / 2);
         }
 
         [System.Security.Permissions.PermissionSet(System.Security.Permissions.SecurityAction.Demand, Name = "FullTrust")]
