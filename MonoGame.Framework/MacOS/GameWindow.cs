@@ -564,29 +564,25 @@ namespace Microsoft.Xna.Framework
 			var modInt = (uint)theEvent.ModifierFlags & 0xFFFF0000;
 			var modifier = ((NSEventModifierMask)Enum.ToObject (typeof(NSEventModifierMask), modInt));
 
-			switch (modifier) {
-			//case NSEventModifierMask.AlphaShiftKeyMask:
-			// return Keys.None;
-			case NSEventModifierMask.AlternateKeyMask:
+			if (modifier.HasFlag (NSEventModifierMask.AlternateKeyMask)) {
 				_flags.Add (Keys.LeftAlt);
 				_flags.Add (Keys.RightAlt);
-				break;
+			}
 
-			case NSEventModifierMask.CommandKeyMask:
+			if (modifier.HasFlag (NSEventModifierMask.CommandKeyMask)) {
 				_flags.Add (Keys.LeftWindows);
 				_flags.Add (Keys.RightWindows);
-				break;
-			case NSEventModifierMask.ControlKeyMask:
+			}
+			if (modifier.HasFlag (NSEventModifierMask.ControlKeyMask)) {
 				_flags.Add (Keys.LeftControl);
 				_flags.Add (Keys.RightControl);
-				break;
-			case NSEventModifierMask.HelpKeyMask:
+			}
+			if (modifier.HasFlag (NSEventModifierMask.HelpKeyMask)) {
 				_flags.Add (Keys.Help);
-				break;
-			case NSEventModifierMask.ShiftKeyMask:
+			}
+			if (modifier.HasFlag (NSEventModifierMask.ShiftKeyMask)) {
 				_flags.Add (Keys.RightShift);
 				_flags.Add (Keys.LeftShift);
-				break;
 			}
 
 			UpdateKeyboardState ();
