@@ -47,6 +47,7 @@ namespace Microsoft.Xna.Framework.Windows
         public const int WM_SYSCOMMAND = 0x0112;
 
         public bool AllowAltF4 = true;
+        public int ppi;
 
         internal bool IsResizing { get; set; }
 
@@ -59,6 +60,8 @@ namespace Microsoft.Xna.Framework.Windows
         public WinFormsGameForm(WinFormsGameWindow window)
         {
             _window = window;
+            System.Drawing.Graphics g = this.CreateGraphics();
+            this.ppi = (int)Math.Round((g.DpiX + g.DpiY) / 2);
         }
 
         public void CenterOnPrimaryMonitor()
