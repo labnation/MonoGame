@@ -276,6 +276,18 @@ namespace Microsoft.Xna.Framework
             }
         }
 
+        public int PixelsPerInch
+        {
+            get
+            {
+#if WINDOWS
+                return ((MonoGame.Framework.WinFormsGameWindow)Platform.Window)._form.ppi;
+#else
+                throw new NotSupportedException("Pixels per inch not available on this platform");
+#endif
+            }
+        }
+
         [CLSCompliant(false)]
         public GameWindow Window
         {
