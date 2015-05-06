@@ -114,7 +114,7 @@ namespace Microsoft.Xna.Framework.Graphics
 			CullMode = CullMode.CullCounterClockwiseFace;
 			FillMode = FillMode.Solid;
 			DepthBias = 0;
-			MultiSampleAntiAlias = true;
+			MultiSampleAntiAlias = false;
 			ScissorTestEnable = false;
 			SlopeScaleDepthBias = 0;
             DepthClipEnable = true;
