@@ -280,7 +280,7 @@ namespace Microsoft.Xna.Framework
         {
             get
             {
-#if WINDOWS
+#if WINDOWS && DIRECTX
                 return ((MonoGame.Framework.WinFormsGameWindow)Platform.Window)._form.ppi;
 #else
                 throw new NotSupportedException("Pixels per inch not available on this platform");
