@@ -85,7 +85,7 @@ namespace Microsoft.Xna.Framework.Audio
         /// <returns>True if the sound controller was setup, and false if not.</returns>
         private bool OpenSoundController()
         {
-#if MONOMAC || IOS
+#if MONOMAC
 			alcMacOSXMixerOutputRate(PREFERRED_MIX_RATE);
 #endif
             try
@@ -497,7 +497,7 @@ namespace Microsoft.Xna.Framework.Audio
         }
 #endif
 
-#if MONOMAC || IOS
+#if MONOMAC
 		public const string OpenALLibrary = "/System/Library/Frameworks/OpenAL.framework/OpenAL";
 
 		[DllImport(OpenALLibrary, EntryPoint = "alcMacOSXMixerOutputRate")]
