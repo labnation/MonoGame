@@ -321,7 +321,9 @@ namespace Microsoft.Xna.Framework.Graphics
 
 
 			GL.Clear(bufferMask);
+#if !MONOMAC
             GraphicsExtensions.CheckGLError();
+#endif
            		
             // Restore the previous render state.
 		    ScissorRectangle = prevScissorRect;
@@ -397,13 +399,13 @@ namespace Microsoft.Xna.Framework.Graphics
                 GL.Viewport(value.X, value.Y, value.Width, value.Height);
             else
                 GL.Viewport(value.X, PresentationParameters.BackBufferHeight - value.Y - value.Height, value.Width, value.Height);
-            GraphicsExtensions.LogGLError("GraphicsDevice.Viewport_set() GL.Viewport");
+            //GraphicsExtensions.LogGLError("GraphicsDevice.Viewport_set() GL.Viewport");
 #if GLES
             GL.DepthRange(value.MinDepth, value.MaxDepth);
 #else
             GL.DepthRange((double)value.MinDepth, (double)value.MaxDepth);
 #endif
-            GraphicsExtensions.LogGLError("GraphicsDevice.Viewport_set() GL.DepthRange");
+            //GraphicsExtensions.LogGLError("GraphicsDevice.Viewport_set() GL.DepthRange");
                 
             // In OpenGL we have to re-apply the special "posFixup"
             // vertex shader uniform if the viewport changes.
