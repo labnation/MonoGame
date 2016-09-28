@@ -245,8 +245,9 @@ namespace Microsoft.Xna.Framework
             if (_mainWindow != null)
             {
                 var windowController = (NSWindowController)_mainWindow.WindowController;
-                windowController.Close();
+                windowController.Close ();
             }
+            RaiseAsyncRunLoopEnded ();
         }
 
         public override void StartRunLoop()
