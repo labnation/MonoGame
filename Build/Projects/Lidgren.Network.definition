@@ -27,6 +27,23 @@
   </References>
 
   <Properties>
+    <FrameworkVersions>
+      <Platform Name="Android">
+        <Version>v4.2</Version>
+      </Platform>
+      <Platform Name="Windows">
+        <Version>v4.0</Version>
+      </Platform>
+      <Platform Name="WindowsGL">
+        <Version>v4.0</Version>
+      </Platform>
+      <Platform Name="MacOS">
+        <Version>v4.0</Version>
+      </Platform>
+      <Platform Name="Linux">
+        <Version>v4.0</Version>
+      </Platform>
+    </FrameworkVersions>  
     <LangVersion>Default</LangVersion>
     <WarningLevel>0</WarningLevel>
     <MonoDevelopPoliciesFile>Build/MonoDevelopPolicies.xml</MonoDevelopPoliciesFile>
