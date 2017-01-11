@@ -113,6 +113,7 @@ namespace Microsoft.Xna.Framework
 
     class OpenTKGamePlatform : GamePlatform
     {
+        private OpenTK.Toolkit toolkit;
         private OpenTKGameWindow _view;
 		private OpenALSoundController soundControllerInstance = null;
         // stored the current screen state, so we can check if it has changed.
@@ -125,7 +126,7 @@ namespace Microsoft.Xna.Framework
             : base(game)
         {
             if (PlatformParameters.PreferredBackend != Backend.Default)
-                Toolkit.Init(new ToolkitOptions { Backend = PlatformBackend.PreferNative });
+                toolkit = Toolkit.Init(new ToolkitOptions { Backend = PlatformBackend.PreferNative });
 
             _view = new OpenTKGameWindow(game);
             this.Window = _view;
@@ -184,6 +185,7 @@ namespace Microsoft.Xna.Framework
                 else
                 {
                     _view.Dispose();
+                    toolkit.Dispose();
                     break;
                 }
             }
