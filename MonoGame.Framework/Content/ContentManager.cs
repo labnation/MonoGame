@@ -232,9 +232,11 @@ namespace Microsoft.Xna.Framework.Content
 		protected virtual Stream OpenStream(string assetName)
 		{
 			Stream stream;
-			try
+            var assetPath = Path.Combine(RootDirectory, assetName) + ".xnb";
+            
+            try
             {
-                var assetPath = Path.Combine(RootDirectory, assetName) + ".xnb";
+                
 
                 // This is primarily for editor support. 
                 // Setting the RootDirectory to an absolute path is useful in editor
@@ -296,7 +298,8 @@ namespace Microsoft.Xna.Framework.Content
 			}
 			
 			Stream stream = null;
-			try
+            var assetPath = Path.Combine(RootDirectory, assetName) + ".xnb";
+            if (File.Exists(assetPath))
             {
 				//try load it traditionally
 				stream = OpenStream(assetName);
@@ -322,7 +325,8 @@ namespace Microsoft.Xna.Framework.Content
                     }
                 }
             }
-            catch (ContentLoadException ex)
+            //catch (ContentLoadException ex)
+            else
             {
 				//MonoGame try to load as a non-content file
 
@@ -332,7 +336,7 @@ namespace Microsoft.Xna.Framework.Content
 	
 				if (string.IsNullOrEmpty(assetName))
 				{
-					throw new ContentLoadException("Could not load " + originalAssetName + " asset as a non-content file!", ex);
+					throw new ContentLoadException("Could not load " + originalAssetName + " asset as a non-content file!");
 				}
 
                 result = ReadRawAsset<T>(assetName, originalAssetName);
