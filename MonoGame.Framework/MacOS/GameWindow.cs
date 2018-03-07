@@ -40,7 +40,9 @@ purpose and non-infringement.
 
 #region Using Statements
 using System;
+#if !MONOMAC
 using System.Drawing;
+#endif
 using System.Collections.Generic;
 using System.Globalization;
 using System.Linq;

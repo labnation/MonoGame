@@ -42,12 +42,12 @@ using System;
 
 #if MONOMAC || WINDOWS
 using System.Runtime.InteropServices;
-using System.Drawing;
 #endif
 
 #if OPENGL
 #if DESKTOPGL
 using MouseInfo = OpenTK.Input.Mouse;
+using System.Drawing;
 #elif MONOMAC
 #if PLATFORM_MACOS_LEGACY
 using MonoMac.Foundation;

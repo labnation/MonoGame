@@ -5,7 +5,9 @@
 using System;
 using System.IO;
 using System.Runtime.InteropServices;
+#if !MONOMAC
 using System.Drawing;
+#endif
 using MonoGame.Utilities.Png;
 
 #if MONOMAC
@@ -52,7 +54,7 @@ using Android.Graphics;
 #endif
 #endif // OPENGL
 
-#if DESKTOPGL || MONOMAC || ANGLE
+#if DESKTOPGL || ANGLE
 using System.Drawing.Imaging;
 #endif
 
@@ -515,8 +517,8 @@ namespace Microsoft.Xna.Framework.Graphics
 
         private void PlatformSaveAsJpeg(Stream stream, int width, int height)
         {
-#if DESKTOPGL || MONOMAC
-			SaveAsImage(stream, width, height, ImageFormat.Jpeg);
+#if DESKTOPGL
+            SaveAsImage (stream, width, height, ImageFormat.Jpeg);
 #elif ANDROID
             SaveAsImage(stream, width, height, Bitmap.CompressFormat.Jpeg);
 #else
@@ -534,7 +536,7 @@ namespace Microsoft.Xna.Framework.Graphics
 #endif
         }
 
-#if DESKTOPGL || MONOMAC
+#if DESKTOPGL
 		private void SaveAsImage(Stream stream, int width, int height, ImageFormat format)
 		{
 			if (stream == null)

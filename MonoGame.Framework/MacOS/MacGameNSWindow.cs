@@ -39,7 +39,9 @@ purpose and non-infringement.
 #endregion License
 using System;
 using System.Collections.Generic;
+#if !MONOMAC
 using System.Drawing;
+#endif
 #if PLATFORM_MACOS_LEGACY
 using MonoMac.AppKit;
 using MonoMac.Foundation;
