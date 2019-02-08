@@ -26,6 +26,11 @@
 
   <Properties>
 
+    <FrameworkVersions>
+      <Platform Name="Android">
+        <Version>v9.0</Version>
+      </Platform>
+    </FrameworkVersions>
     <LangVersion>Default</LangVersion>
     <NoWarn>1591,0436</NoWarn>
     <MonoDevelopPoliciesFile>Build/MonoDevelopPolicies.xml</MonoDevelopPoliciesFile>
