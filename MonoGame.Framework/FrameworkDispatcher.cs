@@ -23,6 +23,7 @@ namespace Microsoft.Xna.Framework
         /// </summary>
         public static void Update()
         {
+            return;
             if (!_initialized)
                 Initialize();
 
