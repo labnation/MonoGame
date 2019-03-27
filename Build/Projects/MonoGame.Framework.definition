@@ -45,12 +45,12 @@
       <Platform Name="WindowsUniversal">TRACE;NETFX_CORE;WINDOWS_UAP;DIRECTX;DIRECTX11_1;WINDOWS_MEDIA_ENGINE</Platform>
       <Platform Name="Web">TRACE;WEB</Platform>
     </CustomDefinitions>
-	
+
 	<DefineNET4DetectionConstant>True</DefineNET4DetectionConstant>
 
     <FrameworkVersions>
       <Platform Name="Android">
-        <Version>v4.4</Version>
+        <Version>v9.0</Version>
       </Platform>
     </FrameworkVersions>
 
@@ -174,7 +174,7 @@
       <Link>MonoGame.Framework.dll.config</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
-	
+
     <None Include="..\ThirdParty\Dependencies\SDL\Windows\x86\SDL2.dll">
 	  <Platforms>WindowsGL,Linux</Platforms>
       <Link>x86\SDL2.dll</Link>
@@ -399,7 +399,7 @@
     <Compile Include="Audio\Xact\MaxInstanceBehavior.cs" />
     <Compile Include="Audio\Xact\MiniFormatTag.cs" />
     <Compile Include="Audio\Xact\PlayWaveEvent.cs" />
-    <Compile Include="Audio\Xact\ReverbSettings.cs" />	
+    <Compile Include="Audio\Xact\ReverbSettings.cs" />
     <Compile Include="Audio\Xact\RpcCurve.cs" />
     <Compile Include="Audio\Xact\RpcParameter.cs" />
     <Compile Include="Audio\Xact\RpcPoint.cs" />
@@ -408,7 +408,7 @@
     <Compile Include="Audio\Xact\SoundBank.cs" />
     <Compile Include="Audio\Xact\VolumeEvent.cs" />
     <Compile Include="Audio\Xact\WaveBank.cs" />
-    <Compile Include="Audio\Xact\WaveBank.Default.cs">	
+    <Compile Include="Audio\Xact\WaveBank.Default.cs">
       <Platforms>Android,Angle,iOS,Linux,MacOS,Windows,WindowsGL,WindowsUniversal,Web,tvOS</Platforms>
     </Compile>
     <Compile Include="Audio\Xact\XactClip.cs" />
@@ -915,7 +915,7 @@
     <Compile Include="Graphics\WindowInfo.SDL.cs">
       <Platforms>WindowsGL,Linux,MacOS</Platforms>
     </Compile>
-    
+
     <!-- Microsoft.Xna.Framework.Input -->
     <Compile Include="Input\Buttons.cs" />
     <Compile Include="Input\ButtonState.cs" />
@@ -1212,7 +1212,7 @@
     <Compile Include="Utilities\Imaging\Operations.cs" />
     <Compile Include="Utilities\Imaging\PinnedArray.cs" />
 
-	
+
 
 
     <!-- Android Platform -->
