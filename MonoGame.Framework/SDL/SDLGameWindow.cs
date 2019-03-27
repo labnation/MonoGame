@@ -158,8 +158,8 @@ namespace Microsoft.Xna.Framework
 
             Id = Sdl.Window.GetWindowId(_handle);
 
-            if (_icon != IntPtr.Zero)
-                Sdl.Window.SetIcon(_handle, _icon);
+            //            if (_icon != IntPtr.Zero)
+            //Sdl.Window.SetIcon(_handle, _icon);
 
             Sdl.Window.SetBordered(_handle, _borderless ? 0 : 1);
             Sdl.Window.SetResizable(_handle, _resizable);
