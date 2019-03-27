@@ -202,7 +202,9 @@ namespace MonoGame.Utilities
 
         public static void stbi__start_mem(stbi__context s, byte* buffer, int len)
         {
+#if !LINUX
             s.io.read = (null);
+#endif
             s.read_from_callbacks = (int) (0);
             s.img_buffer = s.img_buffer_original = buffer;
             s.img_buffer_end = s.img_buffer_original_end = buffer + len;
@@ -1743,19 +1745,25 @@ namespace MonoGame.Utilities
                 if ((z.img_comp[i].raw_data) != null)
                 {
                     free(z.img_comp[i].raw_data);
+#if !LINUX
                     z.img_comp[i].raw_data = (null);
                     z.img_comp[i].data = (null);
+#endif
                 }
                 if ((z.img_comp[i].raw_coeff) != null)
                 {
                     free(z.img_comp[i].raw_coeff);
+#if !LINUX
                     z.img_comp[i].raw_coeff = null;
                     z.img_comp[i].coeff = null;
+#endif
                 }
                 if ((z.img_comp[i].linebuf) != null)
                 {
                     free(z.img_comp[i].linebuf);
+#if !LINUX
                     z.img_comp[i].linebuf = (null);
+#endif
                 }
             }
             return (int) (why);
@@ -1784,8 +1792,10 @@ namespace MonoGame.Utilities
             s.img_n = (int) (c);
             for (i = (int) (0); (i) < (c); ++i)
             {
+#if !LINUX
                 z.img_comp[i].data = (null);
                 z.img_comp[i].linebuf = (null);
+#endif
             }
             if (Lf != 8 + 3*s.img_n) return (int) (stbi__err("bad SOF len"));
             z.rgb = (int) (0);
@@ -1827,7 +1837,9 @@ namespace MonoGame.Utilities
                 z.img_comp[i].h2 = (int) (z.img_mcu_y*z.img_comp[i].v*8);
                 z.img_comp[i].coeff = null;
                 z.img_comp[i].raw_coeff = null;
+#if !LINUX
                 z.img_comp[i].linebuf = (null);
+#endif
                 z.img_comp[i].raw_data = stbi__malloc_mad2((int) (z.img_comp[i].w2), (int) (z.img_comp[i].h2),
                     (int) (15));
                 if ((z.img_comp[i].raw_data) == (null))
@@ -1878,8 +1890,10 @@ namespace MonoGame.Utilities
             int m;
             for (m = (int) (0); (m) < (4); m++)
             {
+#if !LINUX
                 j.img_comp[m].raw_data = (null);
                 j.img_comp[m].raw_coeff = (null);
+#endif
             }
             j.restart_interval = (int) (0);
             if (stbi__decode_jpeg_header(j, (int) (STBI__SCAN_load)) == 0) return (int) (0);
@@ -3367,9 +3381,11 @@ namespace MonoGame.Utilities
             int color = (int) (0);
             int is_iphone = (int) (0);
             stbi__context s = z.s;
+#if !LINUX
             z.expanded = (null);
             z.idata = (null);
             z._out_ = (null);
+#endif
             if (stbi__check_png_header(s) == 0) return (int) (0);
             if ((scan) == (STBI__SCAN_type)) return (int) (1);
             for (;;)
@@ -3520,7 +3536,9 @@ namespace MonoGame.Utilities
                                     (int*) (&raw_len), is_iphone != 0 ? 0 : 1));
                         if ((z.expanded) == (null)) return (int) (0);
                         free(z.idata);
+#if !LINUX
                         z.idata = (null);
+#endif
                         if (((((req_comp) == (s.img_n + 1)) && (req_comp != 3)) && (pal_img_n == 0)) ||
                             ((has_trans) != 0))
                             s.img_out_n = (int) (s.img_n + 1);
@@ -3555,7 +3573,9 @@ namespace MonoGame.Utilities
                             ++s.img_n;
                         }
                         free(z.expanded);
+#if !LINUX
                         z.expanded = (null);
+#endif
                         return (int) (1);
                     }
                     default:
@@ -3582,7 +3602,9 @@ namespace MonoGame.Utilities
                 if ((p.depth) < (8)) ri->bits_per_channel = (int) (8);
                 else ri->bits_per_channel = (int) (p.depth);
                 result = p._out_;
+#if !LINUX
                 p._out_ = (null);
+#endif
                 if (((req_comp) != 0) && (req_comp != p.s.img_out_n))
                 {
                     if ((ri->bits_per_channel) == (8))
@@ -3602,11 +3624,17 @@ namespace MonoGame.Utilities
             }
 
             free(p._out_);
+#if !LINUX
             p._out_ = (null);
+#endif
             free(p.expanded);
+#if !LINUX
             p.expanded = (null);
+#endif
             free(p.idata);
+#if !LINUX
             p.idata = (null);
+#endif
             return result;
         }
 
