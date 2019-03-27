@@ -909,7 +909,10 @@ namespace Microsoft.Xna.Framework.Graphics
 		[DebuggerHidden]
         public static void CheckGLError()
         {
-           var error = GL.GetError();
+#if LINUX            
+            return;
+#endif
+            var error = GL.GetError();
             //Console.WriteLine(error);
             if (error != ErrorCode.NoError)
                 throw new MonoGameGLException("GL.GetError() returned " + error.ToString());
